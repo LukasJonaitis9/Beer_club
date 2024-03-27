@@ -56,6 +56,7 @@ header ul.nav li a:hover, header ul.nav form button:hover {
 
 main {
     flex-grow: 1;
+    background-color: #ffffffa2;
 }
 
 footer {
