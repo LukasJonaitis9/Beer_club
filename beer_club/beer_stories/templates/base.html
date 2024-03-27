@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load static %}
+<!DOCTYPE html>{% load static i18n %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,22 @@
         <ul class="nav">
             <li><a href="{% url "index" %}">Main</a></li>
             <li><a href="{% url "review_list" %}">Review</a></li>
+        </ul>
+        <span class="spacer"></span>
+        <ul class="nav">
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url "user_detail_current" %}">{{ user }}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url "admin:index" %}">Admin</a></li>
+                {% else %}
+                    <li><a href="{% url "ticket_list" %}">{% trans "tickets" %}</a></li>
+                {% endif %}
+                <li><form method="post" action="{% url "logout" %}">{% csrf_token %}
+                <button type="submit">{% trans "log out"|capfirst %}</button></form></li>
+            {% else %}
+                <li><a href="{% url "login" %}">{% trans "log in"|capfirst %}</a></li>
+                <li><a href="{% url "signup" %}">{% trans "sign up"|capfirst %}</a></li>
+            {% endif %}
         </ul>
     </header>
     <section class="messages">
