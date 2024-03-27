@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html>{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BeerClub{% endblock title %}</title>
+    <link rel='stylesheet' href={% static "css/style.css" %}>
 </head>
 <body>
     <header>
@@ -12,6 +13,19 @@
             <li><a href="{% url "index" %}">Main</a></li>
             <li><a href="{% url "review_list" %}">Review</a></li>
         </ul>
+    </header>
+    <section class="messages">
+        {% for message in messages %}
+            <p class="message message-{{ message.tags }}">{{ message }}
+        {% endfor %}
+    </section>
     <main>{% block content %}{% endblock content %}</main>
+    <footer>
+        {% block footer %}{% endblock footer %}
+        <p>&copy; 2024 BeerClub 
+            <a style="float:right;" href="https://www.guinness.com/en">"Our sponsor Guinness brewery"</a>
+            <a style="float:right;" href="https://www.guinness.com/en" target="blank"><img style="float:right;" src="{% static "img/guinness.png" %}">
+        </p>
+    </footer>
 </body>
 </html>

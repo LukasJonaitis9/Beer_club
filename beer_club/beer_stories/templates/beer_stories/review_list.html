@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-{% block title %}{{ block.super }}{% endblock title %}
+{% block title %}{{ block.super }} list{% endblock title %}
 {% block content %}
-<h1>Reviews<h1>
+<h1>Reviews</h1>
 <ul>
-{% for review in review_list %}
-    <li>
-        <a href="{% url 'review_detail' review.pk %}">{{ review.name }}</a>
-        <span stype='float:right;'>{{ review.date }}</span>
-    </li>
-{% endfor %}
+    {% for review in review_list %}
+        <li>
+            <a href="{% url 'review_detail' review.pk %}">{{ review.name }}</a>
+            <span stype='float:right;'>{{ review.date }}</span>
+        </li>
+    {% endfor %}
+</ul>
 {% endblock content %}

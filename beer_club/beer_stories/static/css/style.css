@@ -1,0 +1,190 @@
+body {
+    background-color: #FBB1179f;
+    background-image: url('/static/img/bck.jpg');
+    background-size: contain;
+    font-family: sans-serif;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Remai aplinkui visa webo vaizda */
+    padding: 0; /* Remai aplinkui visa webo vaizda */
+    min-height: 100vh;
+}
+
+header {
+    background-color: #96f2cb;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; /* Centruoja logo aukstyn zemyn */
+    /*justify-content: center;*/ /* Sucentruoja logo is kaire i desine, padaro webo centre */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0.5rem;
+}
+
+header ul.nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-block:  o.5rem;
+    padding-inline: 0;
+    gap: 0.5rem;
+}
+
+header ul.nav li a, header ul.nav form button {
+    background-color: #FBB117;
+    display: block;
+    margin: 0;
+    padding: 0.5rem;
+    border: 0;
+    border-bottom: 2px solid #004488;
+    cursor: pointer;
+    color: #004488;
+    font-size: 100%;
+    border-radius: 0.5rem;
+}
+
+header ul.nav li a:hover, header ul.nav form button:hover {
+    background-color: #2effa8ad;
+    border-bottom: 2px solid #2c8890;
+    color: #0055cc;
+    text-decoration: none;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #2effa89f;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer img {
+    max-height: 24px;
+}
+
+a {
+    color: #048;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    color: #0055cc;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding:  0.5rem;
+    margin: 1rem 0;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+}
+
+p, main ul {
+    padding: 0 0.5rem;
+    margin: 1rem 0;
+}
+
+footer p {
+    color: #8f8e8e;
+}
+
+footer a {
+    color: #31629e;
+}
+
+footer a:hover {
+    color: #446b02;
+}
+
+section.message {
+    padding: 0;
+    margin: 0;
+
+}
+
+section.messages .message, ul.errorlist {
+    padding: 0.5;
+    margin: 0;
+    border-bottom: 1px solid #888888;    
+}
+
+.message-debug {
+    background-color: #004488;
+}
+
+.message.info {
+    background-color: #004488;
+}
+
+.message-success {
+    background-color: #cc99;
+}
+
+.message-warning {
+    background-color: #ffcc99;
+}
+
+.message_error, ul.errorlist {
+    background-color: #ffaaaa;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+header form select {
+    margin: 1rem;
+    font-size: 100%;
+}
+
+.language-container {
+    float: right;
+    margin-right: 3rem; /* Adjust as needed */
+}
+
+main form label {
+    display: inline-block;
+    width: 20vw;
+    min-width: 15rem;
+    font-size: 120%;
+}
+
+main form input,
+main form textarea,
+main form select, 
+main form button {
+    font-size: 120%;
+}
+
+main form .helptext {
+    display: block;
+    font-size: 90%;
+}
+
+button, .button {
+    background-color: #d8d8d8;
+    border: 1px solid #666666;
+    border-bottom: 2px solid #004488;
+    padding: 0.5rem;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    background-color: #dfdfdf;
+    border-bottom: 2px solid#0055cc;
+}
+
+.toolbar {
+    margin: 0.5rem;
+}
