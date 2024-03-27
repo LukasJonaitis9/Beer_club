@@ -2,7 +2,11 @@
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>Reviews<h1>
+<ul>
 {% for review in review_list %}
-    <p>{{ review }}</p>
+    <li>
+        <a href="{% url 'review_detail' review.pk %}">{{ review.name }}</a>
+        <span stype='float:right;'>{{ review.date }}</span>
+    </li>
 {% endfor %}
 {% endblock content %}

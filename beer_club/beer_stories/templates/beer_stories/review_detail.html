@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | {{ review}}{% endblock title %}
+{% block content %}
+<h1>{{ review.name }}</h1>
+<p>Name: {{ review.name }} / Type: {{ review.type }}</p>
+<p>Color: {{ review.color }}</p>
+<p>Rating: {{ review.rating }}</p>
+<p>Filtered: {{ review.filtered }}</p>
+<p>Description: {{ review.description }}</p>
+<p>Date: {{ review.date }}</p>
+<p>Image: {{ review.image }}</p>
+{% endblock content %}
