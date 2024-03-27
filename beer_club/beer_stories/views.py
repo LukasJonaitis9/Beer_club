@@ -9,3 +9,8 @@ def index(request: HttpRequest) -> HttpResponse:
         'user_count': models.get_user_model().objects.count()
     }
     return render(request, 'beer_stories/index.html', context)
+
+def review_list(request:HttpRequest) -> HttpResponse:
+    return render(request, 'beer_stories/review_list.html', {
+        'review_list': models.Review.objects.all()
+    })

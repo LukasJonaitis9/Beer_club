@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BeerClub{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <span class="logo">BeerClub</span>
+        <ul class="nav">
+            <li><a hrewf="{% url "index" %}"></a></li>
+            <li><a href="{% url "review_list" %}"></a></li>
+        </ul>
+    <main>{% block content %}{% endblock content %}</main>
+</body>
+</html>
