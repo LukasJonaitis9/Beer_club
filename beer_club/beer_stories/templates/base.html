@@ -23,7 +23,7 @@
                     <li><a href="{% url "admin:index" %}">Admin</a></li>
                 {% endif %}
                 <li><form method="post" action="{% url "logout" %}">{% csrf_token %}
-                <button type="submit">{% trans "log out"|capfirst %}</button></form></li>
+                <button type="submit">Log out</button></form></li>
             {% else %}
                 <li><a href="{% url "login" %}">{% trans "log in"|capfirst %}</a></li>
                 <li><a href="{% url "signup" %}">{% trans "sign up"|capfirst %}</a></li>

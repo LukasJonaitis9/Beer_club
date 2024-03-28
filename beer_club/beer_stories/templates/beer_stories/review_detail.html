@@ -2,15 +2,25 @@
 {% block title %}{{ block.super }} | {{ review }}{% endblock title %}
 {% block content %}
 <section class="wrapper">
-  <div class="top"><h1>{{ review.name }}</h1></div>
-  <div class="bottom" aria-hidden="true">
-    <p><span class="label">Name:</span> <div class="user-content">{{ review.name|safe }}</div></p>
-    <p><span class="label">Type:</span> <div class="user-content">{{ review.type|safe }}</div></p>
-    <p><span class="label">Color:</span> <div class="user-content">{{ review.color|safe }}</div></p>
-    <p><span class="label">Rating:</span> <div class="user-content">{{ review.rating|safe }}</div></p>
-    <p><span class="label">Date:</span> <div class="user-content">{{ review.date|safe }}</div></p>
-    <p><span class="label">Description:</span> <div class="user-content">{{ review.description|safe }}</div></p>
-    <p>Image: {{ review.image }}</p>
+  <div class="content-wrapper">
+    <div class="text-content">
+      <div class="top"><h1>{{ review.name }}</h1></div>
+      <div class="bottom" aria-hidden="true">
+        <p><span class="label">Name:</span> <div class="user-content">{{ review.name|safe }}</div></p>
+        <p><span class="label">Type:</span> <div class="user-content">{{ review.type|safe }}</div></p>
+        <p><span class="label">Color:</span> <div class="user-content">{{ review.color|safe }}</div></p>
+        <p><span class="label">Rating:</span> <div class="user-content">{{ review.rating|safe }}</div></p>
+        <p><span class="label">Date:</span> <div class="user-content">{{ review.date|safe }}</div></p>
+      </div>
+      <div class="description">
+        <p><span class="label">Description:</span> <div class="user-content">{{ review.description|safe }}</div></p>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      {% if review.image %}
+      <img src="{{ review.image }}" alt="{{ review.name }} Image">
+      {% endif %}
+    </div>
   </div>
 </section>
 {% endblock content %}

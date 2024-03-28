@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load static %} <!-- Add this line to load the static template tag library -->
 {% block content %}
-<h1>BeerClub</h1>
-<p>Users: {{ users_count }}</p>
-<p>Types: {{ types_count }}</p>
-<p>Review: {{ reviews_count }}</p>
+<!-- Embedding video in full screen -->
+<video id="fullscreen-bg-video" class="fullscreen-bg-video" autoplay muted loop>
+  <source src="{% static 'vid/beer.mp4' %}" type="video/mp4">
+</video>
+<!-- End of video embedding -->
+
+<!-- Optional: Add a fallback text or message -->
+<noscript>Your browser does not support JavaScript!</noscript>
 {% endblock content %}

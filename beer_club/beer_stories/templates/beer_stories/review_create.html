@@ -3,9 +3,9 @@
 {% block title %}{% trans "Create review" %}{% endblock title %}
 {% block content %}
 <h1>{% trans "Create a review" %}</h1>
+<p><button type="submit">{% trans "Create" %}</button></p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <p><button type="submit">{% trans "Create" %}</button></p>
 </form>
 {% endblock content %}
