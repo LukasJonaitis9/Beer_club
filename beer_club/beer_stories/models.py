@@ -2,6 +2,8 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext as _
 from django.urls import reverse
+from tinymce.models import HTMLField
+
 
 class Type(models.Model):
     MAIN_KINDS = (
@@ -78,7 +80,7 @@ class Review(models.Model):
 
     filtered = models.CharField(max_length=20, choices=FILTERED, null=True, blank=True, help_text='Choose filtered or unfiltered beer!')
     
-    description = models.TextField(_("description"), blank=True, max_length=10000)
+    description = HTMLField(_("description"), blank=True, max_length=10000)
 
     image = models.URLField(max_length=2000, help_text='Enter URL for beer image', blank=True, default='')
 

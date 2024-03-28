@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BeerClub{% endblock title %}</title>
     <link rel='stylesheet' href={% static "css/style.css" %}>
+    <link rel='icon' type="image/png" href="{% static "img/favicon.png" %}">
 </head>
 <body>
     <header>
@@ -20,8 +21,6 @@
                 <li><a href="{% url "user_detail_current" %}">{{ user }}</a></li>
                 {% if user.is_superuser or user.is_staff %}
                     <li><a href="{% url "admin:index" %}">Admin</a></li>
-                {% else %}
-                    <li><a href="{% url "ticket_list" %}">{% trans "tickets" %}</a></li>
                 {% endif %}
                 <li><form method="post" action="{% url "logout" %}">{% csrf_token %}
                 <button type="submit">{% trans "log out"|capfirst %}</button></form></li>

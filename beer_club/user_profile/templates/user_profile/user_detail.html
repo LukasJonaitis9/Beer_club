@@ -2,8 +2,14 @@
 {% block title %}{{ object }} {% trans "at" %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>User: {{ object.username }}</h1>
+<div>
+    {% if object.profile.picture %}
+    <img src="{{ object.profile.picture.url }}" alt="Profile Picture" width="300">
+{% endif %}
+</div>
 <p>{{ object.first_name }} {{ object.last_name }}</p>
 {% if object == request.user %}
-    <p>Email: {{ object.email }}
+    <p><a class="button" href="{% url "user_update" %}">{% trans "Edit member info" %}</a></p>
+    <p>Email: {{ object.email }}</p>
 {% endif %}
 {% endblock content %}
