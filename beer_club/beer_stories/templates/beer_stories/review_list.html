@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{{ block.super }} list{% endblock title %}
+
+{% block title %}
+  {{ block.super }} list
+{% endblock title %}
+
 {% block content %}
-<h1>Review</h1>
-<div class="toolbar">
+  <h1>Review</h1>
+  <div class="toolbar">
     <a class="button" href="{% url "review_create" %}">{% trans "Create new review" %}</a>
-</div>
-<ul>
+  </div>
+  <ul class="review-list">
     {% for review in review_list %}
-        <li>
-            <a href="{% url 'review_detail' review.pk %}">{{ review.name }}</a>
-            <span style='float:right;'>{{ review.date }}</span>
-        </li>
+      <li>
+        <button class="review-button" onclick="window.location='{% url 'review_detail' review.pk %}'">
+          {{ review.name }}
+          <span class="date">{{ review.date }}</span>
+        </button>
+      </li>
     {% endfor %}
-</ul>
+  </ul>
 {% endblock content %}

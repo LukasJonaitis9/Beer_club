@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{{ type.kinds }} | {{ block.super }}{% endblock title %}
+
+{% block title %}
+  {{ type.kinds }} | {{ block.super }}
+{% endblock title %}
+
 {% block content %}
-<h1>{{ type.name }}</h1>
-<p>{% trans "Kind" %}: {{ type.kinds }}</p>
-<h2>{% trans "Reviews" %}</h2>
-{% if reviews %}
-    <ul>
-        {% for review in reviews %}
-            <li>
-                <a href="{% url 'review_detail' review.pk %}">{{ review.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>{% trans "No reviews found" %}</p>
-{% endif %}
+  <h1>{{ type.name }}</h1>
+  <h2>{% trans "Reviews" %}</h2>
+  <div class="review-buttons">
+    {% if reviews %}
+      {% for review in reviews %}
+        <button class="review-button" onclick="window.location='{% url 'review_detail' review.pk %}'">
+          {{ review.name }}
+        </button>
+      {% endfor %}
+    {% else %}
+      <p>{% trans "No reviews found" %}</p>
+    {% endif %}
+  </div>
 {% endblock content %}

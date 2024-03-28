@@ -1,13 +1,50 @@
-{% extends "base.html" %}{% load i18n %}
-{% block title %}{{ block.super }}{% trans "type" %}{% endblock title %}
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
+  {{ block.super }}
+  {% trans "type" %}
+{% endblock title %}
 {% block content %}
-<h1>{% trans "type"|capfirst %}</h1>
-<ul>
-{% for type in type_list %}
-    <li>
-        <a href="{% url "type_detail" type.pk %}">{{ type.name }}</a>
-        ({{ type.review_count }})
-    </li>
-{% endfor %}
-</ul>
+  <h1>{% trans "type"|capfirst %}</h1>
+  <div class="type-list">
+    {% for type in type_list %}
+      <div class="type-item">
+        <div class="type-name">
+          <button class="type-button" onclick="window.location='{% url 'type_detail' type.pk %}'">
+            {{ type.name }} ({{ type.review_count }})
+          </button>
+        </div>
+        <div class="type-description user-content">
+          {% if forloop.first %}
+            <!-- Comment about the first type -->
+            <p>Stout is a dark, top-fermented beer style which includes dry stout, oatmeal stout, milk stout and imperial stout. The history and development of stout and porter are thus intertwined.</p>
+          {% elif forloop.counter == 2 %}
+            <!-- Additional description for the second type -->
+            <p>The style of pale ale which became known as India pale ale was widespread in England in 1815,[3] and would grow in popularity, notably as an export beer shipped to India (which was under the control of the British East India Company until 1858) and elsewhere.</p>
+          {% elif forloop.counter == 3 %}
+            <!-- Description for the third type -->
+            <p>The term "lager" is derived from the German word "lagern" which means "to store". Lager beer typically matures for longer periods of time compared to ales, resulting in a cleaner, smoother taste.</p>
+          {% elif forloop.counter == 4 %}
+            <!-- Description for the fourth type -->
+            <p>Pilsner (also pilsener or simply pils) is a type of pale lager. It takes its name from the Bohemian city of Plzeň (German: Pilsen), where the world's first pale lager (now known as Pilsner Urquell) was produced in 1842 by Pilsner Urquell Brewery.</p>
+          {% elif forloop.counter == 5 %}
+            <!-- Description for the fifth type -->
+            <p>Ale is a type of beer originating in medieval England, brewed using a warm fermentation method. Historically, the term referred to a drink brewed without hops.</p>
+          {% elif forloop.counter == 6 %}
+            <!-- Description for the sixth type -->
+            <p>Wheat unfiltered beer is a top-fermented beer which is brewed with a large proportion of wheat relative to the amount of malted barley. The two main varieties are German Weizenbier and Belgian witbier; other types include Lambic (made with wild yeast), Berliner Weisse (a cloudy, sour beer), and Gose (a sour, salty beer).</p>
+          {% elif forloop.counter == 7 %}
+            <!-- Description for the seventh type -->
+            <p>Bock is a strong German beer, usually a dark lager.</p>
+          {% elif forloop.counter == 8 %}
+            <!-- Description for the eighth type -->
+            <p>-</p>
+          {% else %}
+            <!-- For other types, display the regular description -->
+            <p>{{ type.description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
