@@ -1,11 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, redirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
-from . import models
+from . import models, forms
 from django.db.models import Count
+
+
 #
 class TypeListView(generic.ListView):
     model = models.Type
@@ -73,3 +77,17 @@ def review_detail(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, 'beer_stories/review_detail.html', {
         'review': get_object_or_404(models.Review, pk=pk),
     })
+
+@login_required
+def review_create(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        form = forms.ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.owner = request.user
+            review.save()
+            messages.success(request, 'Review created successfully'.capitalize())
+            return redirect('review_list')
+    else:
+        form = forms.ReviewForm()
+    return render(request, 'beer_stories/review_create.html', {'form': form})
