@@ -74,8 +74,8 @@ class Review(models.Model):
     color = models.CharField(max_length=22, choices=COLOR_TYPES, help_text='Choose your colour of beer!')
 
     FILTERED = (
-        ('Yes', 'Filtered'),
-        ('No', 'Unfiltered')
+        ('Filtered', 'Filtered'),
+        ('Unfiltered', 'Unfiltered')
     )
 
     filtered = models.CharField(max_length=20, choices=FILTERED, null=True, blank=True, help_text='Choose filtered or unfiltered beer!')
