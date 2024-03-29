@@ -91,3 +91,15 @@ def review_create(request: HttpRequest) -> HttpResponse:
     else:
         form = forms.ReviewForm()
     return render(request, 'beer_stories/review_create.html', {'form': form})
+
+@login_required
+def review_like(request: HttpRequest, pk: int) -> HttpResponse:
+    review = get_object_or_404(models.Review, pk=pk)
+    like = models.ReviewLike.objects.filter(review=review, user=request.user).first()
+    if not like:
+        models.ReviewLike.objects.create(review=review, user=request.user)
+    else:
+        like.delete()
+    if request.GET.get('next'):
+        return redirect(request.GET.get('next'))
+    return redirect('review_list')

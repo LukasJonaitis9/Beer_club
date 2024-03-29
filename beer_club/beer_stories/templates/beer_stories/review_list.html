@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load static i18n %}
 
 {% block title %}
   {{ block.super }} list
@@ -14,6 +14,7 @@
     {% for review in review_list %}
       <li>
         <button class="review-button" onclick="window.location='{% url 'review_detail' review.pk %}'">
+          <img src="{% static 'img/favicon.png' %}" alt="Favicon" class="favicon">
           {{ review.name }}
           <span class="date">{{ review.date }}</span>
         </button>

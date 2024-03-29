@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load static i18n %}
 {% block title %}
   {{ block.super }}
   {% trans "type" %}
@@ -11,6 +11,7 @@
       <div class="type-item">
         <div class="type-name">
           <button class="type-button" onclick="window.location='{% url 'type_detail' type.pk %}'">
+            <img src="{% static 'img/favicon.png' %}" alt="Favicon" class="favicon">
             {{ type.name }} ({{ type.review_count }})
           </button>
         </div>

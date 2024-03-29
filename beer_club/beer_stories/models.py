@@ -54,24 +54,24 @@ class Review(models.Model):
 
 
     RATING = (
-        ('1', 'very bad'),
-        ('2', 'bad'),
-        ('3', 'average'),
-        ('4', 'good'),
-        ('5', 'perfect')
+        ('1 out of 5', 'very bad'),
+        ('2 out of 5', 'bad'),
+        ('3 out of 5', 'average'),
+        ('4 out of 5', 'good'),
+        ('5 out of 5', 'perfect')
     )
     
-    rating = models.CharField(max_length=1, choices=RATING, help_text='Choose beer rating')
+    rating = models.CharField(max_length=10, choices=RATING, help_text='Choose beer rating')
 
     COLOR_TYPES = (
-        ('Light / Straw', 'Light / Straw'),
-        ('Amber', 'Amber'),
-        ('Copper / Reddish-Brown', 'Copper / Reddish-Brown'),
-        ('Brown', 'Brown'),
-        ('Black', 'Black'),
+        (' Light / Straw ', ' Light / Straw '),
+        (' Amber', 'Amber '),
+        (' Copper / Reddish-Brown ', ' Copper / Reddish-Brown '),
+        (' Brown ', ' Brown '),
+        (' Black ', ' Black '),
     )
 
-    color = models.CharField(max_length=22, choices=COLOR_TYPES, help_text='Choose your colour of beer!')
+    color = models.CharField(max_length=30, choices=COLOR_TYPES, help_text='Choose your colour of beer!')
 
     FILTERED = (
         ('Filtered', 'Filtered'),
@@ -98,3 +98,27 @@ class Review(models.Model):
     def get_absolute_url(self):
         return reverse("review_detail", kwargs={"pk": self.pk})
     
+
+class ReviewLike(models.Model):
+    review = models.ForeignKey(
+        Review, 
+        verbose_name=_("review"), 
+        on_delete=models.CASCADE,
+        related_name='likes',
+    )
+    user = models.ForeignKey(
+        get_user_model(), 
+        verbose_name=_("user"), 
+        on_delete=models.CASCADE,
+        related_name='review_likes',
+    )
+
+    class Meta:
+        verbose_name = _("review like")
+        verbose_name_plural = _("review likes")
+
+    def __str__(self):
+        return f"{self.review} {self.user}"
+
+    def get_absolute_url(self):
+        return reverse("review_like_detail", kwargs={"pk": self.pk})

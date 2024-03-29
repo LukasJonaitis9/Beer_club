@@ -6,8 +6,8 @@ body {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    margin: 0; /* Remai aplinkui visa webo vaizda */
-    padding: 0; /* Remai aplinkui visa webo vaizda */
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
 }
 
@@ -60,8 +60,8 @@ main {
 }
 
 footer {
-    background-color: #2effa89f;
-    position: fixed;
+    background-color: #34fca89b;
+    position: static;
     bottom: 0;
     width: 100%;
 }
@@ -232,6 +232,7 @@ main form .helptext {
     margin: 1rem;
     overflow: auto;
     max-width: max-content;
+    padding: 0.5rem;
 }
 
 .fullscreen-bg-video {
@@ -251,12 +252,13 @@ main form .helptext {
     object-fit: cover;
   }
 
-.wrapper {
+  .wrapper {
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 100vh; /* Set the height of the section to 100% of the viewport height */
-  }
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    height: 100vh;
+}
+
   
   .content-wrapper {
     display: flex;
@@ -276,10 +278,38 @@ main form .helptext {
   }
   
   .image-wrapper img {
-    max-width: 500px; /* Set maximum width */
-    max-height: 500px; /* Set maximum height */
+    max-width: 300px; /* Set maximum width */
+    max-height: 400px; /* Set maximum height */
     width: auto; /* Allow width to adjust according to aspect ratio */
     height: auto; /* Allow height to adjust according to aspect ratio */
   }
 
+  .content-wrapper {
+    display: flex;
+  }
   
+  .text-content {
+    flex: 1;
+  }
+  
+  .image-description-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .description {
+    margin-top: 20px; /* Adjust as needed */
+  }
+
+  .label {
+    background-color: #FBB117;
+    display: inline-block;
+    margin: 0;
+    padding: 0.5rem;
+    border: 0;
+    border-bottom: 2px solid #004488;
+    color: #004488;
+    font-size: 80%; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 0.5rem;
+}
