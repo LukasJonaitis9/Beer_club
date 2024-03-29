@@ -10,6 +10,7 @@ class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), verbose_name=_("user"), on_delete=models.CASCADE)
     picture = models.ImageField(_("picture"), upload_to='user_pictures/', blank=True, null=True)
 
+
     class Meta:
         verbose_name = _("profile")
         verbose_name_plural = _("profiles")

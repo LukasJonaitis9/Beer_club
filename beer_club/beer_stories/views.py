@@ -10,7 +10,6 @@ from . import models, forms
 from django.db.models import Count
 
 
-#
 class TypeListView(generic.ListView):
     model = models.Type
     template_name = 'beer_stories/type_list.html'
@@ -19,7 +18,7 @@ class TypeListView(generic.ListView):
         queryset = super().get_queryset()
         queryset = queryset.annotate(review_count=Count('review'))
         return queryset
-#
+
 
 class TypeDetailView(generic.DetailView):
     model = models.Type
@@ -45,7 +44,6 @@ class TypeCreateView(LoginRequiredMixin, generic.CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
     
-#UPDEITAI UZKOMENTUOTI??????????????
     
 class TypeUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = models.Type

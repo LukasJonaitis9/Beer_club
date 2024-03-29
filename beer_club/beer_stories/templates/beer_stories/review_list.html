@@ -1,11 +1,6 @@
-{% extends "base.html" %}
-{% load static i18n %}
-
-{% block title %}
-  {{ block.super }} list
-{% endblock title %}
-
-{% block content %}
+{% extends "base.html" %}{% load static i18n %}
+{% block title %}{{ block.super }} list
+{% endblock title %}{% block content %}
   <h1>Review</h1>
   <div class="toolbar">
     <a class="button" href="{% url "review_create" %}">{% trans "Create new review" %}</a>

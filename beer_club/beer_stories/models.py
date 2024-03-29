@@ -43,7 +43,9 @@ class Type(models.Model):
     
 
 class Review(models.Model):
-    name = models.CharField(_("name"), max_length=100, db_index=True, help_text='Enter beer name')
+    name = models.CharField(_("name"), max_length=100, 
+            db_index=True, help_text='Enter beer name'
+    )
     
     type = models.ForeignKey(
         Type,
@@ -51,7 +53,6 @@ class Review(models.Model):
         verbose_name=_("type"), 
         related_name='review',
     )
-
 
     RATING = (
         ('1 out of 5', 'very bad'),
@@ -61,7 +62,9 @@ class Review(models.Model):
         ('5 out of 5', 'perfect')
     )
     
-    rating = models.CharField(max_length=10, choices=RATING, help_text='Choose beer rating')
+    rating = models.CharField(max_length=10, choices=RATING, 
+            help_text='Choose beer rating'
+    )
 
     COLOR_TYPES = (
         (' Light / Straw ', ' Light / Straw '),
@@ -71,18 +74,24 @@ class Review(models.Model):
         (' Black ', ' Black '),
     )
 
-    color = models.CharField(max_length=30, choices=COLOR_TYPES, help_text='Choose your colour of beer!')
+    color = models.CharField(max_length=30, choices=COLOR_TYPES, 
+            help_text='Choose your colour of beer!'
+    )
 
     FILTERED = (
         ('Filtered', 'Filtered'),
         ('Unfiltered', 'Unfiltered')
     )
 
-    filtered = models.CharField(max_length=20, choices=FILTERED, null=True, blank=True, help_text='Choose filtered or unfiltered beer!')
+    filtered = models.CharField(max_length=20, choices=FILTERED, null=True, 
+            blank=True, help_text='Choose filtered or unfiltered beer!'
+    )
     
     description = HTMLField(_("description"), blank=True, max_length=10000)
 
-    image = models.URLField(max_length=2000, help_text='Enter URL for beer image', blank=True, default='')
+    image = models.URLField(max_length=2000, help_text='Enter URL for beer image', 
+            blank=True, default=''
+    )
 
     date = models.DateField(auto_now_add=True)
 
@@ -112,6 +121,7 @@ class ReviewLike(models.Model):
         on_delete=models.CASCADE,
         related_name='review_likes',
     )
+
 
     class Meta:
         verbose_name = _("review like")

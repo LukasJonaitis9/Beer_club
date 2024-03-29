@@ -201,11 +201,9 @@ button:hover, .button:hover {
     border-bottom: 1px solid #888888;
 }
 
-
 .message-error, ul.errorlist {
     background-color: #ffaaaa;
 }
-
 
 main form label {
     display: inline-block;
@@ -245,63 +243,60 @@ main form .helptext {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-  }
+}
   
-  /* Optional: Center video content */
-  video.fullscreen-bg-video {
+video.fullscreen-bg-video {
     object-fit: cover;
-  }
-
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align content to the top */
-    height: 100vh;
 }
 
-  
-  .content-wrapper {
+.wrapper {
     display: flex;
-    align-items: flex-start; /* Align content to the top */
-  }
+    justify-content: center;
+    align-items: flex-start; 
+}
   
-  .text-content {
+.content-wrapper {
+    display: flex;
+    align-items: flex-start;
+} 
+  
+.text-content {
     flex: 1;
-  }
+}
   
-  .description {
-    width: 50%; /* Set description width to half of the screen */
-  }
+.description {
+    width: 50%; 
+}
   
-  .image-wrapper {
-    margin-left: 20px; /* Adjust as needed to add space between text and image */
-  }
+.image-wrapper {
+    margin-left: 20px; 
+}
   
-  .image-wrapper img {
-    max-width: 300px; /* Set maximum width */
-    max-height: 400px; /* Set maximum height */
-    width: auto; /* Allow width to adjust according to aspect ratio */
-    height: auto; /* Allow height to adjust according to aspect ratio */
-  }
+.image-wrapper img {
+    max-width: 300px; 
+    max-height: 400px; 
+    width: auto;
+    height: auto; 
+}
 
-  .content-wrapper {
+.content-wrapper {
     display: flex;
-  }
+}
   
-  .text-content {
+.text-content {
     flex: 1;
-  }
+}
   
-  .image-description-wrapper {
+.image-description-wrapper {
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .description {
-    margin-top: 20px; /* Adjust as needed */
-  }
+.description {
+    margin-top: 20px; 
+}
 
-  .label {
+.label {
     background-color: #FBB117;
     display: inline-block;
     margin: 0;
@@ -309,7 +304,24 @@ main form .helptext {
     border: 0;
     border-bottom: 2px solid #004488;
     color: #004488;
-    font-size: 80%; /* Increase font size */
-    font-weight: bold; /* Make text bold */
+    font-size: 80%; 
+    font-weight: bold; 
     border-radius: 0.5rem;
+}
+
+.video-text {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 1; 
+}
+  
+.transparent-text {
+    color: rgba(248, 246, 132, 0.92); 
+    font-size: 48px; 
+    text-align: center; 
+    margin: 0; 
+    padding: 0; 
 }
