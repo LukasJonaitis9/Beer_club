@@ -1,4 +1,4 @@
-{% extends "base.html" %}{% load i18n %}
+{% extends "base.html" %}{% load static i18n %}
 {% block title %}{% trans "Editing" %}{{ request.user }}{% trans "Profile at" %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans "Editing" %} {{ request.user }} {% trans "Profile" %}</h1>
@@ -7,4 +7,5 @@
     {{ form_user.as_p }}
     {{ form_profile.as_p }}
     <p><button type="submit">{% trans "Confirm" %}</button></p>
+</form>
 {% endblock content %}
