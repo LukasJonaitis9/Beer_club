@@ -7,6 +7,7 @@ class TypeAdmin(admin.ModelAdmin):
     list_display_links = ['kinds']
     list_filter = ['owner']
 
+
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['name', 'type', 'rating', 'color', 'filtered', 'description', 'image', 'date']
     list_filter = ['type', 'rating', 'color']
